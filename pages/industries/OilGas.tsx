@@ -35,24 +35,24 @@ const OilGas: React.FC = () => {
       {/* Hero Section */}
       <div className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="./images/oilgas.jpg" 
-            alt="Offshore Rig" 
+          <img
+            src="/images/oilgas.jpg"
+            alt="Offshore Rig"
             className="w-full h-full object-cover filter grayscale-[30%] opacity-40"
-             onError={(e) => {
+            onError={(e) => {
               (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1516937941348-c09645f31e88?q=80&w=2670&auto=format&fit=crop';
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dilmun-dark via-dilmun-dark/80 to-transparent"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <div className="inline-block px-3 py-1 mb-4 text-xs font-mono tracking-widest text-dilmun-accent border border-dilmun-accent/30 bg-dilmun-accent/10 rounded-sm">
+            <div className="inline-block px-3 py-1 mb-4 text-xs font-mono tracking-widest text-dilmun-accent border border-dilmun-accent/30 bg-dilmun-accent/10 rounded-sm">
               ENERGY & RESOURCES
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
@@ -71,25 +71,25 @@ const OilGas: React.FC = () => {
           <div>
             <h2 className="text-3xl font-bold text-white mb-6">Safety Through Simulation</h2>
             <p className="text-dilmun-muted text-lg leading-relaxed mb-6">
-              The Oil & Gas sector faces unique challenges: remote locations, high-pressure environments, and zero margin for error. 
+              The Oil & Gas sector faces unique challenges: remote locations, high-pressure environments, and zero margin for error.
             </p>
             <p className="text-dilmun-muted text-lg leading-relaxed">
               Dilmun XR solutions focus on "Active Muscle Memory." By replicating rig environments and control rooms in VR, we allow operators to practice critical procedures until they are second nature, significantly reducing incident rates and improving operational uptime.
             </p>
           </div>
-          
+
           <div className="space-y-6">
-             {benefits.map((item, idx) => (
-               <div key={idx} className="bg-dilmun-card border border-white/5 p-6 flex items-start gap-6 hover:border-yellow-500/50 transition-colors">
-                 <div className="text-yellow-500/80 pt-1">
-                   {item.icon}
-                 </div>
-                 <div>
-                   <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                   <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
-                 </div>
-               </div>
-             ))}
+            {benefits.map((item, idx) => (
+              <div key={idx} className="bg-dilmun-card border border-white/5 p-6 flex items-start gap-6 hover:border-yellow-500/50 transition-colors">
+                <div className="text-yellow-500/80 pt-1">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -97,7 +97,7 @@ const OilGas: React.FC = () => {
           <div className="relative z-10">
             <h3 className="text-3xl font-bold text-white mb-4">Protect your workforce & assets</h3>
             <p className="text-dilmun-muted mb-8 max-w-2xl mx-auto">Schedule a confidential consultation regarding our HSE training modules.</p>
-            <button 
+            <button
               onClick={() => navigate('/contact')}
               className="bg-dilmun-accent hover:bg-blue-600 text-white px-8 py-4 font-bold rounded-sm transition-all flex items-center gap-2 mx-auto"
             >

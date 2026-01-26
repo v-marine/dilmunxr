@@ -35,24 +35,24 @@ const Heritage: React.FC = () => {
       {/* Hero Section */}
       <div className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="./images/heritage.jpg" 
-            alt="Digital Heritage" 
+          <img
+            src="/images/heritage.jpg"
+            alt="Digital Heritage"
             className="w-full h-full object-cover filter grayscale-[20%] opacity-40"
-             onError={(e) => {
+            onError={(e) => {
               (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1599940824399-b87987ce0799?q=80&w=2670&auto=format&fit=crop';
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dilmun-dark via-dilmun-dark/80 to-transparent"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <div className="inline-block px-3 py-1 mb-4 text-xs font-mono tracking-widest text-dilmun-accent border border-dilmun-accent/30 bg-dilmun-accent/10 rounded-sm">
+            <div className="inline-block px-3 py-1 mb-4 text-xs font-mono tracking-widest text-dilmun-accent border border-dilmun-accent/30 bg-dilmun-accent/10 rounded-sm">
               CULTURE & HERITAGE
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
@@ -77,19 +77,19 @@ const Heritage: React.FC = () => {
               Dilmun XR partners with cultural authorities to create scientific-grade digital twins of monuments and artifacts. We don't just take photos; we capture geometry, texture, and light to create an enduring digital legacy that can be studied and enjoyed for generations.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 gap-6">
-             {benefits.map((item, idx) => (
-               <div key={idx} className="bg-dilmun-card border border-white/5 p-6 flex gap-6 hover:border-amber-200/30 transition-colors">
-                 <div className="text-amber-200/70 flex-shrink-0 pt-1">
-                   {item.icon}
-                 </div>
-                 <div>
-                   <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                   <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
-                 </div>
-               </div>
-             ))}
+            {benefits.map((item, idx) => (
+              <div key={idx} className="bg-dilmun-card border border-white/5 p-6 flex gap-6 hover:border-amber-200/30 transition-colors">
+                <div className="text-amber-200/70 flex-shrink-0 pt-1">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -97,7 +97,7 @@ const Heritage: React.FC = () => {
           <div className="relative z-10">
             <h3 className="text-3xl font-bold text-white mb-4">Preserve your history</h3>
             <p className="text-dilmun-muted mb-8 max-w-2xl mx-auto">Contact us to discuss photogrammetry and laser scanning projects.</p>
-            <button 
+            <button
               onClick={() => navigate('/contact')}
               className="bg-dilmun-accent hover:bg-blue-600 text-white px-8 py-4 font-bold rounded-sm transition-all flex items-center gap-2 mx-auto"
             >

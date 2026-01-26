@@ -25,19 +25,19 @@ const About: React.FC<AboutProps> = ({ id, className }) => {
               </p>
             </div>
           </div>
-          
+
           <div className="relative h-full min-h-[400px] border border-white/10 bg-dilmun-card/30 rounded-sm overflow-hidden group">
-            <img 
-              src="./images/about.jpg" 
-              alt="Dilmun XR Offices" 
+            <img
+              src="/images/about.jpg"
+              alt="Dilmun XR Offices"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale-[20%] group-hover:grayscale-0"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dilmun-dark/90 via-transparent to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-6">
-               <div className="text-6xl font-bold text-white/10 mb-2 leading-none">BH</div>
-               <div className="text-xs font-mono text-dilmun-accent uppercase tracking-widest bg-black/60 backdrop-blur-md inline-block px-3 py-1 rounded-sm border border-white/10">
-                 Operating from Bahrain
-               </div>
+              <div className="text-6xl font-bold text-white/10 mb-2 leading-none">BH</div>
+              <div className="text-xs font-mono text-dilmun-accent uppercase tracking-widest bg-black/60 backdrop-blur-md inline-block px-3 py-1 rounded-sm border border-white/10">
+                Operating from Bahrain
+              </div>
             </div>
           </div>
         </div>

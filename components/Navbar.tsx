@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
              </div>
             
             <img 
-              src="./images/logo.png" 
+              src="/images/logo.png" 
               alt="Dilmun XR" 
               className="relative z-10 h-8 md:h-10 w-auto object-contain hover:opacity-90 transition-opacity" 
             />

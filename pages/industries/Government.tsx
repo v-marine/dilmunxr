@@ -35,9 +35,9 @@ const Government: React.FC = () => {
       {/* Hero Section */}
       <div className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="./images/government.jpg" 
-            alt="Smart City Visualization" 
+          <img
+            src="/images/government.jpg"
+            alt="Smart City Visualization"
             className="w-full h-full object-cover filter grayscale-[50%] opacity-40"
             onError={(e) => {
               (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2613&auto=format&fit=crop';
@@ -45,7 +45,7 @@ const Government: React.FC = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dilmun-dark via-dilmun-dark/80 to-transparent"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -77,19 +77,19 @@ const Government: React.FC = () => {
               Dilmun XR builds tools that allow officials to "step inside" their data. By visualizing accurate geospatial information in real-time 3D, we reduce planning errors, accelerate approval cycles, and drastically improve public communication.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 gap-6">
-             {benefits.map((item, idx) => (
-               <div key={idx} className="bg-dilmun-card border border-white/5 p-6 flex gap-6 hover:border-dilmun-accent/50 transition-colors">
-                 <div className="text-dilmun-accent flex-shrink-0 pt-1">
-                   {item.icon}
-                 </div>
-                 <div>
-                   <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                   <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
-                 </div>
-               </div>
-             ))}
+            {benefits.map((item, idx) => (
+              <div key={idx} className="bg-dilmun-card border border-white/5 p-6 flex gap-6 hover:border-dilmun-accent/50 transition-colors">
+                <div className="text-dilmun-accent flex-shrink-0 pt-1">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -97,7 +97,7 @@ const Government: React.FC = () => {
           <div className="relative z-10">
             <h3 className="text-3xl font-bold text-white mb-4">Ready to upgrade your infrastructure planning?</h3>
             <p className="text-dilmun-muted mb-8 max-w-2xl mx-auto">Schedule a demo of our large-scale urban visualization capabilities.</p>
-            <button 
+            <button
               onClick={() => navigate('/contact')}
               className="bg-dilmun-accent hover:bg-blue-600 text-white px-8 py-4 font-bold rounded-sm transition-all flex items-center gap-2 mx-auto"
             >
