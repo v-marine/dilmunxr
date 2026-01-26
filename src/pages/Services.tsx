@@ -16,7 +16,7 @@ const Services: React.FC<ServicesProps> = ({ id, className }) => {
       subtitle: "Interactive Real-time Experiences",
       description: "We create high-fidelity interactive environments for showrooms, events, and stakeholder engagement. From large-format touchscreen configurators to full VR architectural walkthroughs, we turn static concepts into explorable realities.",
       icon: <MonitorPlay size={32} />,
-      image: "/images/immersivepresentation.jpg",
+      image: "./images/immersivepresentation.jpg",
       uses: [
         "Real-time Touchscreen Apps",
         "VR Walkthroughs",
@@ -30,7 +30,7 @@ const Services: React.FC<ServicesProps> = ({ id, className }) => {
       subtitle: "Zero-Risk Operational Readiness",
       description: "Replace passive learning with active muscle memory. Our VR simulations replicate hazardous scenarios and complex machinery operations with millimeter precision, ensuring workforce readiness before they step on site.",
       icon: <Box size={32} />,
-      image: "/images/vrtraining.jpg",
+      image: "./images/vrtraining.jpg",
       uses: [
         "HSE Safety Drills",
         "Heavy Machinery Operation",
@@ -44,7 +44,7 @@ const Services: React.FC<ServicesProps> = ({ id, className }) => {
       subtitle: "Institutional-Grade Preservation",
       description: "We utilize laser scanning and photogrammetry to create archival-quality 3D records of historical sites and artifacts. These assets serve preservation efforts, academic research, and public virtual tourism.",
       icon: <Landmark size={32} />,
-      image: "/images/heritage.jpg",
+      image: "./images/heritage.jpg",
       uses: [
         "Digital Archiving",
         "Virtual Museums",

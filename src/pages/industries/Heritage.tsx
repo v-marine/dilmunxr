@@ -36,7 +36,7 @@ const Heritage: React.FC = () => {
       <div className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/heritage.jpg"
+            src="./images/heritage.jpg"
             alt="Digital Heritage"
             className="w-full h-full object-cover filter grayscale-[20%] opacity-40"
             onError={(e) => {

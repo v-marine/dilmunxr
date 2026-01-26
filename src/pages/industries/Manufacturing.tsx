@@ -36,7 +36,7 @@ const Manufacturing: React.FC = () => {
       <div className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/manufacturing.jpg"
+            src="./images/manufacturing.jpg"
             alt="Advanced Manufacturing"
             className="w-full h-full object-cover filter grayscale-[40%] opacity-40"
             onError={(e) => {

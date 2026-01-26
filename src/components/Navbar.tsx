@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
 
   const handleScroll = (id: string) => {
     setIsOpen(false);
-    
+
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
@@ -47,31 +47,31 @@ const Navbar: React.FC = () => {
     const zIndex = [];
     const scale = [];
     const opacity = [];
-    
+
     for (let i = 0; i <= steps; i++) {
       const t = (i / steps) * 2 * Math.PI;
-      
+
       // Parametric Equations for a Figure-8 (Lemniscate-like path)
       // x = A * sin(t)
       // y = B * sin(2t)
       const xPos = 85 * Math.sin(t);
       const yPos = 20 * Math.sin(2 * t);
-      
+
       // Calculate Depth (z) using cos(t)
       // t=0 (Center, moving right): z=1 (Front)
       // t=PI (Center, moving left): z=-1 (Back)
       const zVal = Math.cos(t);
-      
+
       x.push(xPos);
       y.push(yPos);
-      
+
       // Simulate 3D depth
       // When zVal > 0 (front), scale is larger, zIndex is higher
       scale.push(0.5 + 0.5 * (zVal + 1.2) / 2.2); // Range approx 0.5 to 1.0
       zIndex.push(zVal > 0 ? 20 : 0); // Switch stacking context relative to Logo (z-10)
       opacity.push(zVal > 0 ? 1 : 0.4); // Fade out slightly when behind
     }
-    
+
     return { x, y, zIndex, scale, opacity };
   }, []);
 
@@ -81,39 +81,38 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo Section */}
           <div className="relative flex-shrink-0 cursor-pointer group flex items-center justify-center w-[160px] h-full" onClick={scrollToTop}>
-            
-             {/* The Falling Star Orbit System */}
-             <div className="absolute inset-0 flex items-center justify-center pointer-events-none perspective-500">
-               {/* Generate Trail Particles */}
-               {[0, 1, 2, 3, 4, 5].map((index) => (
-                 <motion.div
-                   key={index}
-                   className={`absolute rounded-full ${
-                     index === 0 
-                       ? 'bg-white w-1.5 h-1.5 shadow-[0_0_15px_3px_rgba(255,255,255,0.8)]' // Head
-                       : 'bg-white/80 w-1 h-1' // Tail
-                   }`}
-                   animate={{
-                     x: orbitAnimation.x,
-                     y: orbitAnimation.y,
-                     zIndex: orbitAnimation.zIndex,
-                     scale: index === 0 ? orbitAnimation.scale : orbitAnimation.scale.map(s => s * (1 - index * 0.15)),
-                     opacity: index === 0 ? orbitAnimation.opacity : orbitAnimation.opacity.map(o => o * (1 - index * 0.15))
-                   }}
-                   transition={{
-                     duration: 4,
-                     repeat: Infinity,
-                     ease: "linear",
-                     delay: index * 0.08, // Stagger delays to create the trail effect
-                   }}
-                 />
-               ))}
-             </div>
-            
-            <img 
-              src="/images/logo.png" 
-              alt="Dilmun XR" 
-              className="relative z-10 h-8 md:h-10 w-auto object-contain hover:opacity-90 transition-opacity" 
+
+            {/* The Falling Star Orbit System */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none perspective-500">
+              {/* Generate Trail Particles */}
+              {[0, 1, 2, 3, 4, 5].map((index) => (
+                <motion.div
+                  key={index}
+                  className={`absolute rounded-full ${index === 0
+                      ? 'bg-white w-1.5 h-1.5 shadow-[0_0_15px_3px_rgba(255,255,255,0.8)]' // Head
+                      : 'bg-white/80 w-1 h-1' // Tail
+                    }`}
+                  animate={{
+                    x: orbitAnimation.x,
+                    y: orbitAnimation.y,
+                    zIndex: orbitAnimation.zIndex,
+                    scale: index === 0 ? orbitAnimation.scale : orbitAnimation.scale.map(s => s * (1 - index * 0.15)),
+                    opacity: index === 0 ? orbitAnimation.opacity : orbitAnimation.opacity.map(o => o * (1 - index * 0.15))
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: index * 0.08, // Stagger delays to create the trail effect
+                  }}
+                />
+              ))}
+            </div>
+
+            <img
+              src="./images/logo.png"
+              alt="Dilmun XR"
+              className="relative z-10 h-8 md:h-10 w-auto object-contain hover:opacity-90 transition-opacity"
             />
           </div>
 

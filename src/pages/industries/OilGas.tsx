@@ -36,7 +36,7 @@ const OilGas: React.FC = () => {
       <div className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/oilgas.jpg"
+            src="./images/oilgas.jpg"
             alt="Offshore Rig"
             className="w-full h-full object-cover filter grayscale-[30%] opacity-40"
             onError={(e) => {

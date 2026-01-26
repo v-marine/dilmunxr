@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-block mb-4 group" onClick={() => window.scrollTo(0, 0)}>
               <img
-                src="/images/logo.png"
+                src="./images/logo.png"
                 alt="Dilmun XR"
                 className="h-8 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
               />

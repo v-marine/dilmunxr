@@ -36,7 +36,7 @@ const Government: React.FC = () => {
       <div className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/government.jpg"
+            src="./images/government.jpg"
             alt="Smart City Visualization"
             className="w-full h-full object-cover filter grayscale-[50%] opacity-40"
             onError={(e) => {

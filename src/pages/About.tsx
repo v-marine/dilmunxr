@@ -28,7 +28,7 @@ const About: React.FC<AboutProps> = ({ id, className }) => {
 
           <div className="relative h-full min-h-[400px] border border-white/10 bg-dilmun-card/30 rounded-sm overflow-hidden group">
             <img
-              src="/images/about.jpg"
+              src="./images/about.jpg"
               alt="Dilmun XR Offices"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale-[20%] group-hover:grayscale-0"
             />
