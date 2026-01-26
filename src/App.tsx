@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { ThemeProvider, useTheme } from './components/ThemeContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -25,39 +26,52 @@ const ScrollToTop = () => {
   return null;
 };
 
+const AppContent: React.FC = () => {
+  const { theme } = useTheme();
+
+  return (
+    <div className={`relative min-h-screen font-sans selection:bg-dilmun-accent selection:text-white overflow-x-hidden transition-colors duration-300 ${theme === 'dark'
+        ? 'bg-dilmun-dark text-dilmun-text'
+        : 'bg-gray-50 text-gray-900'
+      }`}>
+      <ParticlesBackground />
+
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar />
+
+        <main className="flex-grow pt-20">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/industries" element={<Industries />} />
+
+            {/* Industry Sub-pages */}
+            <Route path="/industries/government" element={<Government />} />
+            <Route path="/industries/manufacturing" element={<Manufacturing />} />
+            <Route path="/industries/oil-gas" element={<OilGas />} />
+            <Route path="/industries/heritage" element={<Heritage />} />
+
+            <Route path="/technology" element={<Technology />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   return (
-    <HashRouter>
-      <ScrollToTop />
-      <div className="relative min-h-screen bg-dilmun-dark text-dilmun-text font-sans selection:bg-dilmun-accent selection:text-white overflow-x-hidden">
-        <ParticlesBackground />
-        
-        <div className="relative z-10 flex flex-col min-h-screen">
-          <Navbar />
-          
-          <main className="flex-grow pt-20">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/industries" element={<Industries />} />
-              
-              {/* Industry Sub-pages */}
-              <Route path="/industries/government" element={<Government />} />
-              <Route path="/industries/manufacturing" element={<Manufacturing />} />
-              <Route path="/industries/oil-gas" element={<OilGas />} />
-              <Route path="/industries/heritage" element={<Heritage />} />
-
-              <Route path="/technology" element={<Technology />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </main>
-
-          <Footer />
-        </div>
-      </div>
-    </HashRouter>
+    <ThemeProvider>
+      <HashRouter>
+        <ScrollToTop />
+        <AppContent />
+      </HashRouter>
+    </ThemeProvider>
   );
 };
 

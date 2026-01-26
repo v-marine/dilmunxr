@@ -1,12 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight, Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTheme } from './ThemeContext';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { name: 'Services', id: 'services' },
@@ -76,7 +78,10 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="fixed w-full top-0 z-50 glass-nav">
+    <nav className={`fixed w-full top-0 z-50 transition-colors duration-300 ${theme === 'dark'
+        ? 'glass-nav'
+        : 'bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo Section */}
@@ -89,8 +94,8 @@ const Navbar: React.FC = () => {
                 <motion.div
                   key={index}
                   className={`absolute rounded-full ${index === 0
-                      ? 'bg-white w-1.5 h-1.5 shadow-[0_0_15px_3px_rgba(255,255,255,0.8)]' // Head
-                      : 'bg-white/80 w-1 h-1' // Tail
+                    ? 'bg-white w-1.5 h-1.5 shadow-[0_0_15px_3px_rgba(255,255,255,0.8)]' // Head
+                    : 'bg-white/80 w-1 h-1' // Tail
                     }`}
                   animate={{
                     x: orbitAnimation.x,
@@ -131,8 +136,18 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Theme Toggle & CTA Button */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-full transition-all duration-300 ${theme === 'dark'
+                  ? 'bg-white/10 hover:bg-white/20 text-yellow-400'
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                }`}
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <button
               onClick={() => handleScroll('contact')}
               className="flex items-center gap-2 bg-dilmun-accent hover:bg-blue-600 text-white px-5 py-2 rounded-sm text-sm font-semibold transition-colors"
@@ -156,17 +171,35 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-dilmun-card border-b border-gray-800">
+        <div className={`md:hidden border-b transition-colors duration-300 ${theme === 'dark'
+            ? 'bg-dilmun-card border-gray-800'
+            : 'bg-white border-gray-200'
+          }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => handleScroll(link.id)}
-                className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
+                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors ${theme === 'dark'
+                    ? 'text-gray-300 hover:text-white hover:bg-gray-700'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                  }`}
               >
                 {link.name}
               </button>
             ))}
+            <div className="flex items-center gap-3 px-3 pt-4">
+              <button
+                onClick={toggleTheme}
+                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-sm transition-colors ${theme === 'dark'
+                    ? 'bg-white/10 text-yellow-400'
+                    : 'bg-gray-100 text-gray-700'
+                  }`}
+              >
+                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+              </button>
+            </div>
             <button
               onClick={() => handleScroll('contact')}
               className="block w-full text-left px-3 py-4 mt-4 text-center bg-dilmun-accent text-white font-bold rounded-sm"
